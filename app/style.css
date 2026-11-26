@@ -1,0 +1,225 @@
+/* STATLAS 样式：深蓝 + 米白 + 一点中国红。系统字体，不加载任何外部字体。 */
+
+:root {
+  --navy: #12395e;
+  --navy-deep: #0e2a47;
+  --blue: #1f5fa8;
+  --blue-light: #2e86c1;
+  --red: #c8102e;
+  --paper: #f7f3ea;
+  --card: #ffffff;
+  --ink: #22344d;
+  --muted: #5a6b80;
+  --line: #e3ddd0;
+  --green: #3a7d5d;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans SC", sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* ---- 顶栏 ---- */
+.site-header { background: var(--navy-deep); color: #fff; }
+.header-inner {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+.brand { display: flex; align-items: center; gap: 12px; color: #fff; text-decoration: none; }
+.brand-mark {
+  width: 44px; height: 44px;
+  background: var(--red); color: #fff;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 26px; font-weight: 700; border-radius: 8px;
+}
+.brand-text { display: flex; flex-direction: column; line-height: 1.25; }
+.brand-text strong { font-size: 22px; letter-spacing: 2px; }
+.brand-text em { font-style: normal; font-size: 13px; color: #c9d6e4; }
+.nav-search { display: flex; margin-left: auto; }
+.nav-search input {
+  width: 240px; padding: 8px 12px;
+  border: 1px solid #33507a; border-radius: 6px 0 0 6px;
+  background: #12395e; color: #fff; font-size: 14px;
+}
+.nav-search input::placeholder { color: #9db2c8; }
+.nav-search button {
+  padding: 8px 14px; border: 1px solid var(--red); border-radius: 0 6px 6px 0;
+  background: var(--red); color: #fff; font-size: 14px; cursor: pointer;
+}
+.year-switch { display: flex; align-items: center; gap: 6px; }
+.year-switch span { font-size: 14px; color: #c9d6e4; }
+.year-switch button {
+  padding: 6px 12px; border: 1px solid #33507a; border-radius: 6px;
+  background: transparent; color: #c9d6e4; font-size: 14px; cursor: pointer;
+}
+.year-switch button.active { background: #fff; color: var(--navy-deep); border-color: #fff; font-weight: 700; }
+
+/* ---- 导航 ---- */
+.site-nav {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  gap: 4px;
+  overflow-x: auto;
+}
+.nav-link {
+  padding: 10px 16px;
+  color: #c9d6e4; text-decoration: none; font-size: 15px;
+  border-bottom: 3px solid transparent; white-space: nowrap;
+}
+.nav-link:hover { color: #fff; }
+.nav-link.active { color: #fff; font-weight: 700; border-bottom-color: var(--red); }
+
+/* ---- 页面 ---- */
+.page { max-width: 1180px; margin: 0 auto; padding: 24px 20px 40px; }
+.section-head h2 { margin: 4px 0 6px; font-size: 28px; color: var(--navy); }
+.section-head p { margin: 0 0 20px; color: var(--muted); font-size: 15px; }
+.muted { color: var(--muted); }
+.source-note { font-size: 13px; color: var(--muted); margin: 10px 0 0; }
+.chart-note { font-size: 13px; color: var(--muted); margin: 8px 0 0; }
+
+/* ---- 大数字卡片 ---- */
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 14px;
+  margin-bottom: 18px;
+}
+.kpi-card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-top: 4px solid var(--blue);
+  border-radius: 10px;
+  padding: 14px 16px 12px;
+}
+.kpi-card:nth-child(3) { border-top-color: var(--red); }
+.kpi-label { font-size: 14px; color: var(--muted); }
+.kpi-value { font-size: 30px; font-weight: 800; color: var(--navy); line-height: 1.25; }
+.kpi-unit { font-size: 14px; font-weight: 400; color: var(--muted); margin-left: 4px; }
+.kpi-change { font-size: 14px; font-weight: 700; color: var(--green); }
+.kpi-note { font-size: 13px; color: var(--ink); margin-top: 4px; }
+.kpi-source { font-size: 11px; color: #8a97a8; margin-top: 8px; line-height: 1.4; }
+
+/* ---- 图表卡片 ---- */
+.chart-card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 18px 20px;
+  margin-bottom: 18px;
+}
+.chart-card h3 { margin: 0 0 12px; font-size: 18px; color: var(--navy); }
+.chart-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+.chart-grid-2 .chart-card { margin-bottom: 18px; }
+.chart-body svg { display: block; }
+
+/* ---- 环形图 ---- */
+.donut-wrap { display: flex; align-items: center; gap: 24px; flex-wrap: wrap; }
+.donut-legend { display: flex; flex-direction: column; gap: 8px; }
+.legend-row { display: flex; align-items: center; gap: 8px; font-size: 14px; }
+.legend-row strong { margin-left: auto; padding-left: 16px; color: var(--navy); }
+.legend-swatch { width: 14px; height: 14px; border-radius: 3px; display: inline-block; }
+
+/* ---- 事实列表 ---- */
+.fact-list { display: grid; grid-template-columns: 1fr 1fr; gap: 12px 24px; }
+.fact {
+  display: flex; flex-direction: column;
+  border-left: 3px solid var(--blue);
+  padding-left: 12px;
+}
+.fact strong { font-size: 20px; color: var(--navy); }
+.fact span { font-size: 14px; color: var(--muted); }
+
+/* ---- 方块地图 ---- */
+.map-wrap { max-width: 720px; margin: 0 auto; }
+.tile { cursor: pointer; }
+.tile rect { stroke: var(--paper); stroke-width: 2; }
+.tile:hover rect, .tile:focus rect { stroke: var(--red); stroke-width: 3; }
+.tile.selected rect { stroke: var(--red); stroke-width: 3; }
+.province-detail {
+  margin-top: 12px; padding: 12px 16px;
+  background: #eef3f8; border-radius: 8px; font-size: 15px;
+}
+.province-detail p { margin: 0; }
+
+/* ---- 表格 ---- */
+.table-wrap { overflow-x: auto; }
+.data-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+.data-table th, .data-table td { padding: 8px 10px; text-align: left; border-bottom: 1px solid var(--line); }
+.data-table thead th { background: #eef3f8; color: var(--navy); white-space: nowrap; }
+.data-table tbody tr:nth-child(even) { background: #faf8f2; }
+.th-btn {
+  background: none; border: none; padding: 0;
+  font: inherit; color: inherit; cursor: pointer; font-weight: 700;
+}
+
+/* ---- 按钮 ---- */
+.btn-row { display: flex; gap: 8px; margin-bottom: 12px; }
+.pill {
+  padding: 6px 14px; border: 1px solid var(--blue); border-radius: 999px;
+  background: #fff; color: var(--blue); font-size: 14px; cursor: pointer;
+}
+.pill.active { background: var(--blue); color: #fff; font-weight: 700; }
+.btn-primary {
+  padding: 10px 20px; border: none; border-radius: 8px;
+  background: var(--red); color: #fff; font-size: 15px; font-weight: 700; cursor: pointer;
+}
+
+/* ---- 搜索 ---- */
+.search-big { display: flex; gap: 10px; margin-bottom: 18px; }
+.search-big input {
+  flex: 1; padding: 12px 14px;
+  border: 1px solid var(--line); border-radius: 8px; font-size: 16px;
+}
+.result-list { display: flex; flex-direction: column; gap: 10px; }
+.result-row {
+  display: flex; justify-content: space-between; gap: 16px;
+  background: var(--card); border: 1px solid var(--line); border-radius: 8px;
+  padding: 12px 16px;
+}
+.result-name { font-weight: 700; color: var(--blue); text-decoration: none; font-size: 16px; }
+.result-name:hover { text-decoration: underline; }
+.result-value { font-size: 15px; margin-top: 2px; }
+.result-source { font-size: 12px; color: var(--muted); max-width: 300px; text-align: right; }
+
+/* ---- 页脚 ---- */
+.site-footer {
+  max-width: 1180px;
+  margin: 0 auto; padding: 0 20px 32px;
+  font-size: 13px; color: var(--muted);
+}
+.site-footer p { margin: 4px 0; }
+
+/* ---- 手机 ---- */
+@media (max-width: 900px) {
+  .kpi-grid { grid-template-columns: repeat(2, 1fr); }
+  .chart-grid-2 { grid-template-columns: 1fr; }
+  .fact-list { grid-template-columns: 1fr; }
+  .nav-search { order: 3; width: 100%; }
+  .nav-search input { flex: 1; width: auto; }
+  .result-row { flex-direction: column; gap: 4px; }
+  .result-source { text-align: left; max-width: none; }
+}
+@media (max-width: 560px) {
+  .kpi-grid { grid-template-columns: 1fr 1fr; }
+  .kpi-value { font-size: 24px; }
+  .section-head h2 { font-size: 22px; }
+  .page { padding: 16px 14px 32px; }
+  .brand-text strong { font-size: 18px; }
+}
